@@ -10,9 +10,9 @@
 
     <title>Markham Home Real Estate Agency</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/mdb.min.css" rel="stylesheet">
-    <link href="css/style.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/mdb.min.css" rel="stylesheet">
+    <link href="/css/style.min.css" rel="stylesheet">
 </head>
 
 <body style="background-color: #81C3Fe">
@@ -38,13 +38,14 @@
 
                     <!-- Left -->
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link waves-effect" href="#">Home
-                                <span class="sr-only">(current)</span>
+                        <li class="nav-item">
+                            <a class="nav-link waves-effect" href="/">Home
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link waves-effect" href="/contact">Contact Us</a>
+                        <li class="nav-item active">
+                            <a class="nav-link waves-effect" href="/contact">Contact Us
+                                <span class="sr-only">(current)</span>
+			    </a>
                         </li>
                     </ul>
 
@@ -77,70 +78,31 @@
 
             <div class="row mb-4 wow fadeIn">
             <!--Section: Jumbotron-->
-            <div class="col-md-6 mb-4">
+            <div class="col-md-12 mb-4">
             <section class="card wow fadeIn" style="background-color: #81C3Fe" id="intro">
 
                 <!-- Content -->
                 <div class="card-body text-white text-left px-5">
 
                     <h1 class="mb-4" style="color: #4e60c4">
-                        <strong>Rhonda Tang</strong>
+                        <strong>Privacy Policy</strong>
                     </h1>
-                    <p style="color: #4e60c4">
-                        <strong>Sales Representative</strong>
-                        
-                    </p>
-                    <p style="color: #4e60c4">
-                        Cell: <a href="tel:6478830528"><strong>647-883-0528</strong></a>
-                    </p>
-                    <p style="color: #4e60c4">
-			WeChat: rhondatangca<br>
-                        Email: <a href="mailto:rhondatang@gmail.com">rhondatang@gmail.com</a><br>
-                        Website: https://markhamhome.ca
-                    </p>
-
-                    <p class="mb-4">
-                        <br><br>
-                        <img src="img/wanthome.png" style="width: 100%">
-                    </p>
                 </div>
+
+            </section>
                 <!-- Content -->
-            </section>
             </div>
-            <!--Card-->
-            <div class="col-md-6 mb-4">
-            <section class="card wow fadeIn" style="background-color: #81C3Fe">
-
-                <!--Card image-->
-                <div class="view overlay">
-                    <img src="img/rhondatang2.jpg" class="card-img-top" style="width: 100%" alt="">
-                    <a href="/">
-                        <div class="mask rgba-white-slight"></div>
-                    </a>
-                </div>
-
-                <!--Card content-->
-                <div class="card-body py-5 px-5 my-5">
-                    <!--Title-->
-                    <h4 class="card-title">Rhonda Tang</h4>
-                    <!--Text-->
-                    <p class="card-text">For more information, please feel free to contact me.</p>
-                </div>
-
-            </section>
-            </div>
-            <!--/.Card-->
             <!--Section: Jumbotron-->
             </div>
-<div class="py-5 px-5 my-2" style="font-size:12px">The trademarks MLS®, Multiple Listing Service® and the associated logos are owned by The Canadian Real Estate Association (CREA). The trademarks REALTOR®, REALTORS®, and the REALTOR® logo are controlled by The Canadian Real Estate Association (CREA).
-</div>
             <hr class="my-2">
+
         </div>
     </main>
     <!--Main layout-->
 
     <!--Footer-->
     <footer class="page-footer text-center font-small mdb-color darken-2 mt-4 wow fadeIn">
+
         <hr class="my-4">
 
         <!-- Social icons -->
@@ -175,17 +137,45 @@
 
     <!-- SCRIPTS -->
     <!-- JQuery -->
-    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
     <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="js/popper.min.js"></script>
+    <script type="text/javascript" src="/js/popper.min.js"></script>
     <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script type="text/javascript" src="/js/mdb.min.js"></script>
     <!-- Initializations -->
     <script type="text/javascript">
         // Animations initialization
         new WOW().init();
+    </script>
+    <script>
+function submitEmail() {
+let url = 'https://api.erglobal.ca/data'
+let name=document.getElementById("name").value
+let phone=document.getElementById("phone").value
+let email=document.getElementById("email").value
+document.getElementById("name").value = ''
+document.getElementById("phone").value = ''
+document.getElementById("email").value = ''
+
+console.log(email);
+let data = {name,phone,email}
+fetch(url, {
+  method: 'POST', // or 'PUT'
+  mode: "cors", // no-cors, cors, *same-origin
+  cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+  body: JSON.stringify(data),
+  headers:{
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  }
+}).then(res => res.json())
+.then(response => ( $('#confirmModal').modal({show: true})))
+.catch(e => {
+    console.log(e);
+  });
+}
     </script>
 </body>
 
